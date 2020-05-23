@@ -1,0 +1,80 @@
+import time
+import RPi.GPIO as GPIO
+import tkinter
+
+window = tkinter.Tk()
+
+window.title("RGB LED")
+
+window.geometry("300x300")
+
+window.configure(background = "light sea green")
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
+led01 = 25 #Red
+
+led02 = 23 #Yellow
+
+led03 = 14 #Green
+
+GPIO.setup(led01, GPIO.OUT)
+
+GPIO.setup(led02, GPIO.OUT)
+
+GPIO.setup(led03, GPIO.OUT)
+
+
+def bcom(): #Red
+    GPIO.output(led03, 0)
+    GPIO.output(led02, 0)
+    GPIO.output(led01, 1)
+
+def bcom1(): #Yellow
+    GPIO.output(led01, 0)
+    GPIO.output(led02, 1)
+    GPIO.output(led03, 0)
+
+def bcom2(): #Green
+    GPIO.output(led02, 0)
+    GPIO.output(led03, 1)
+    GPIO.output(led01, 0)
+
+
+
+
+lbl01 = tkinter.Label(window, text="Circuit:", bg = "light sea green", fg = "gold" )
+
+lbl03 = tkinter.Label(window, text="RGB LED (1) (Red: GPIO Pin 25) (Yellow: GPIO Pin 23) (Green : GPIO Pin 14)", bg = "light sea green", fg = "gold" )
+
+lb02 = tkinter.Label(window, bg = "light sea green")
+
+lbl = tkinter.Label(window, bg = "light sea green")
+    
+btn = tkinter.Button(window, text = "Red", bg = "red", command=bcom)
+
+lbl1 = tkinter.Label(window, bg = "light sea green")
+
+btn1 = tkinter.Button(window, text = "Yellow", bg = "Yellow", command=bcom1)
+
+lbl2 = tkinter.Label(window, bg = "light sea green")
+
+btn2 = tkinter.Button(window, text = "Green", bg = "green", command=bcom2)
+
+lbl3 = tkinter.Label(window, bg = "light sea green")
+
+
+
+lbl01.pack()
+lbl03.pack()
+lb02.pack()
+btn.pack()
+lbl.pack()
+btn1.pack()
+lbl1.pack()
+btn2.pack()
+lbl2.pack()
+
+
+window.mainloop()
