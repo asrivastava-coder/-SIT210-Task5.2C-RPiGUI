@@ -17,7 +17,7 @@ led01 = 25 #Red
 
 led02 = 23 #Yellow
 
-led03 = 14 #Green
+led03 = 4 #Green
 
 GPIO.setup(led01, GPIO.OUT)
 
